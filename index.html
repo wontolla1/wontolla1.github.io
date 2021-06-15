@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html lang="es">
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -9,19 +9,123 @@
 		<link rel="stylesheet" href="dist/reset.css">
 		<link rel="stylesheet" href="dist/reveal.css">
 		<link rel="stylesheet" href="dist/theme/black.css">
+        
+        <!-- Bootstrap -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+        
+         <!-- Font Awesone -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
 		<!-- Theme used for syntax highlighted code -->
 		<link rel="stylesheet" href="plugin/highlight/monokai.css">
         
         <!-- Bootstrap -->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        
+        
+        <!-- jquery -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
         
 	</head>
     <style>
+        
+         /*Caragas*/
+        
+        #preloader{
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background-image: url("images/fondo-prealoder.jpg");
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            height: 100%;
+            z-index: 9999;
+            transition: all 0.4s ease;
+            animation: Intro 2s;
+        }
+        
+        .loader {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            transition: 0.4s;
+        }
+        
+        .loader .loader_text {
+            font-size: 80px;
+            font-family: "Times New Roman";
+            color: white;
+            margin: 20px auto;
+            text-align: center;
+            text-shadow: 0 0 30px #fff;
+        }
+        
+        .loader .loader_bar  {
+            position: relative;
+            width: 500px;
+            height: 12px;
+            background: white;
+            border-radius: 50px;
+        }
+        
+        .loader .loader_bar:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: white;
+            border-radius: 50px;
+            animation: fill 0.3s ease;
+            -webkit-filter: drop-shadow(50px 50px 50px rgba(0, 0, 0, 0.5));
+            filter: drop-shadow(50px 50px 50px rgba(255, 255, 255, 0.8));
+            filter: drop-shadow(0 0 10px white);
+        }
+
+        @keyframes fill {
+            0% { width: 0% }
+            100% { width: 100% }
+        }
+        
+        .cargando{
+            color: white;
+            text-shadow: 0 0 30px #fff;
+            font-family: "Times New Roman";
+            font-size: 500%;
+        }
+        
+        /*All*/
         .reveal h1{
             font-family: "Times New Roman";
             font-size: 80%;
+            text-transform: none;
+            text-shadow: 0 0 30px #fff;
         }
+        .reveal p{
+            font-family: "Times New Roman";
+            font-size: 40%;
+            text-transform: none;
+            text-shadow: 0 0 10px #fff;
+        }
+        .reveal ul{
+            font-family: "Times New Roman";
+            font-size: 80%;
+            text-transform: none;
+        }
+        .reveal img{
+            -webkit-filter: drop-shadow(50px 50px 50px rgba(0, 0, 0, 0.5));
+            filter: drop-shadow(50px 50px 50px rgba(255, 255, 255, 0.8));
+            filter: drop-shadow(0 0 10px white);
+        }
+        /*Postada*/
         .reveal .portada{
             animation: fadeIn 5s;
         }
@@ -60,6 +164,161 @@
             padding-top: 40px;
         }
         
+        /*Contextos*/
+        
+        .reveal .contextos{
+            animation: fadeIn 5s;
+        }
+        .reveal .imagen_contextos{
+            border-radius: 20px;
+            cursor: pointer;
+        }
+        .reveal .imagen_contextos:hover{
+            transform: scale(1.2);
+            transition: all 300ms;
+        }
+        
+        /*Giro*/
+        
+        .reveal .giro{
+            animation: fadeIn 5s;
+        }
+        
+        .reveal .carreras{
+            padding: 20px;
+        }
+        .reveal .normal{
+            width: 30%;
+        }
+        
+        /*Ubicacion*/
+        
+        .reveal .ubicacion{
+            animation: fadeIn 5s;
+        }
+        .reveal .imagen-ubicacion{
+            width: 40%;
+            border-radius: 20px;
+        }
+        .reveal .boton-croquis{
+            margin: 15px;
+            position: relative;
+            top: -40px;
+            width: 200px;
+            font-family: none;
+            font-size: 20px;
+            border: none;
+            border-radius: 20px;
+        }
+        .boton-croquis:hover{
+            background-color: black;
+            color: white;
+            transform: scale(1.2);
+            transition: all 300ms;
+        }
+        .ventana{
+            background-color: black;
+        }
+        .ventana h1{
+            color: black;
+            text-align: center;
+        }
+        
+        /*Mision*/
+        .reveal .mision{
+            animation: fadeIn 5s;
+        }
+        
+        /*Organizacion*/
+        .reveal .organizacion{
+            animation: fadeIn 5s;
+        }
+        .reveal .imagen_normatividad{
+            width: 100%;
+        }
+        .reveal .imagen_infraestructura{
+            width: 70%;
+            border-radius: 20px;
+        }
+        .reveal .imagen_equipo{
+            width: 120%;
+            padding-top: 10px;
+        }
+        .reveal .imagen_horario{
+            width: 70%;
+        }
+        
+        /*Tecnico en Informatica*/
+        
+        /*Modulos*/
+        
+        .reveal .boton-modulos{
+            margin: 15px;
+            position: relative;
+            top: -40px;
+            width: 200px;
+            font-family: none;
+            font-size: 20px;
+            border: none;
+            border-radius: 20px;
+        }
+        
+        .reveal .tecnico{
+            animation: fadeIn 5s;
+        }
+        .reveal .imagen_tecnico{
+            width: 40%;
+        }
+        
+        /*Submodulos*/
+        
+        .boton-regresar{
+            color: white;
+            font-family: "Times New Roman";
+            font-size: 140%;
+        }
+        .modulo_1{
+            font-family: "Times New Roman";
+            font-size: 160%;
+            text-transform: none;
+            text-shadow: 0 0 30px #fff;
+            color: black;
+        }
+        .submodulo{
+            font-family: "Times New Roman";
+            font-size: 270%;
+            text-transform: none;
+            text-shadow: 0 0 30px #fff;
+            color: black;
+            
+        }
+        .submodulo-contenido{
+            font-family: "Times New Roman";
+            font-size: 140%;
+            text-transform: none;
+            text-shadow: 0 0 10px #fff;
+            color: black;
+        }
+        .submodulo-imagen{
+            width: 50%;
+        }
+        
+        
+         /*Animaciones Prealoder*/
+        
+        
+        @keyframes Intro{
+            from{
+                opacity: 0;
+                transform: scale(2);
+                filter: blur(6px);
+                
+            }
+            to{
+                opacity: 1;
+            }
+        }
+        
         /*Animaciones*/
         
         @keyframes fadeIn{
@@ -72,21 +331,30 @@
                 opacity: 1;
             }
         }
+
     </style>
 	<body>
+        <div id="preloader">
+            <div class="loader">
+                <h1 class="loader_text" id="loader_text"><span class="loader_text_unit" data-count="100">0</span><span>%</span></h1>
+                <div class="loader_bar" id="loader_bar"></div>
+                <center><h1 class="cargando">Cargando...</h1></center>
+            </div>
+        </div>
 		<div class="reveal">
 			<div class="slides">
-				<section class="portada" data-background-video="http://localhost/titulacion/videos/fondo.mp4" data-background-video-loop data-background-video-muted>
+
+				<section id="portada" class="portada" data-background-video="https://musicaescritos.webcindario.com/fondo.mp4" data-background-video-loop data-background-video-muted>
                     <div class="container">
                         <div class="row align-items-start">
                             <div class="col">
-                                <img src="https://wontolla1.github.io/images/cargar.gif" class="escudo_edomex">
+                                <img loading="lazy" src="images/escudo_estado_de_mexico.gif" class="escudo_edomex">
                             </div>
                             <div class="col-md-8">
                                 <h1 class="titulo_1">CBT LIC. MARIO COLÍN SÁNCHEZ, ATLACOMULCO</h1>
                             </div>
                             <div class="col">
-                                <img src="images/escudo_cbt.gif" class="escudo_cbt">
+                                <img loading="lazy" src="images/escudo_cbt.gif" class="escudo_cbt">
                             </div>
                         </div>
                     </div>
@@ -99,27 +367,93 @@
                     <h1 class="titulo_8">JONATHAN ARROYO RIVAS</h1>
                     <h1 class="titulo_9">ATLACOMULCO, MÉXICO 		JULIO 2021</h1>
                 </section>
-                <section data-background-video="http://localhost/titulacion/videos/fondo.mp4" data-background-video-loop data-background-video-muted>
-                    <h1 class="titulo_1">Capítulo 1: Referencia del escenario real</h1>
-                    <h1>Atlacomulco de Fabela</h1>
+                <section id="contextos" class="contextos" data-background-video="http://localhost/titulacion/videos/fondo.mp4" data-background-video-loop data-background-video-muted>
+                    <h1 class="cap_1">Capítulo 1: Referencia del escenario real</h1>
+                    <h1 class="atlacomulco">Atlacomulco de Fabela</h1>
                     <div class="container">
                         <div class="row align-items-start">
                             <div class="col">
-                                <h1>Contexto Social</h1>
+                                <h1 class="social">Contexto Social</h1>
+                                <img loading="lazy" class="imagen_contextos" src="images/contexto-social.gif">
                             </div>
                             <div class="col">
-                                <h1>Contexto Económico</h1>
+                                <h1 class="economico">Contexto Económico</h1>
+                                <img loading="lazy" class="imagen_contextos" src="images/contexto-economico.gif">
                             </div>
                             <div class="col">
-                                <h1>Contexto Cultural</h1>
+                                <h1 class="cultural">Contexto Cultural</h1>
+                                <img loading="lazy" class="imagen_contextos" src="images/contexto-cultural.gif">
                             </div>
                         </div>
                     </div>
                 </section>
-                 <section data-background-video="http://localhost/titulacion/videos/fondo.mp4" data-background-video-loop data-background-video-muted>
+                <section id="giro" class="giro" data-background-video="http://localhost/titulacion/videos/fondo.mp4" data-background-video-loop data-background-video-muted>
+                    <h1>Capítulo 1: Referencia del escenario real</h1>
+                    <h1>Escuela Normal de Atlacomulco Profesora Evangelina Alcántara Díaz</h1>
+                    <h1>Giro</h1>
+                    <h1>Es una institución escolar del sector publico que ofrece licenciaturas de docencia a nivel secundaria:</h1>
+                    <div class="container">
+                        <div class="row align-items-start">
+                            <div class="col">
+                                <h1>Español</h1>
+                            </div>
+                            <div class="col">
+                                <h1>Inglés</h1>
+                            </div>
+                            <div class="col">
+                                <h1>Historia</h1>
+                            </div>
+                        </div>
+                    </div>
+                    <img loading="lazy" class="normal" src="images/escudo-normal-atlacomulco-sin-fondo.gif">
+                </section>
+                <section id="ubicacion" class="ubicacion" data-background-video="http://localhost/titulacion/videos/fondo.mp4" data-background-video-loop data-background-video-muted>
+                    <h1>Capítulo 1: Referencia del escenario real</h1>
+                    <h1>Escuela Normal de Atlacomulco Profesora Evangelina Alcántara Díaz</h1>
+                    <h1>Ubicación</h1>
+                    <img loading="lazy" class="imagen-ubicacion" src="images/ubicacion.gif">
+                    <div class="container">
+                        <div class="card-body">
+                            <div class="card-link">
+                                <a href="https://www.mediafire.com/convkey/8009/6g5z6jr6644mpdu9g.jpg" target="_blank"><button class="boton-croquis"><i class="fas fa-eye"></i> Ver croquis</button></a>
+                                <a href="https://g.page/ENAtlacomulco?share" target="_blank"><button class="boton-croquis"><i class="fas fa-map"></i> Ir a la ubicación</button></a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section id="mision" class="mision" data-background-video="http://localhost/titulacion/videos/fondo.mp4" data-background-video-loop data-background-video-muted>
+                    <h1>Capítulo 1: Referencia del escenario real</h1>
+                    <h1>Escuela Normal de Atlacomulco Profesora Evangelina Alcántara Díaz</h1>
+                    <img loading="lazy" src="images/mision-vision-y-valores.gif">
+                </section>
+                <section id="organización-general" class="organizacion" data-background-video="http://localhost/titulacion/videos/fondo.mp4" data-background-video-loop data-background-video-muted>
+                    <h1>Capítulo 1: Referencia del escenario real</h1>
+                    <h1>Escuela Normal de Atlacomulco Profesora Evangelina Alcántara Díaz</h1>
+                    <div class="container">
+                        <div class="row align-items-start">
+                            <div class="col">
+                                <h1>Normatividad</h1>
+                                <img loading="lazy" class="imagen_normatividad" src="images/normatividad.gif">
+                            </div>
+                            <div class="col">
+                                <h1>Infraestructura</h1>
+                                <img loading="lazy" class="imagen_infraestructura" src="images/infraestructura.gif">
+                            </div>
+                            <div class="col">
+                                <h1>Equipo</h1>
+                                <img loading="lazy" class="imagen_equipo" src="images/equipo.gif">
+                            </div>
+                            <div class="col">
+                                <h1>Horario</h1>
+                                <img loading="lazy" class="imagen_horario" src="images/horario.gif">
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                 <section id="tecnico-en-informatica" class="tecnico" data-background-video="http://localhost/titulacion/videos/fondo.mp4" data-background-video-loop data-background-video-muted>
                     <h1>Capítulo 2: Referencia del perfil profesional</h1>
-                     <h1>Técnico en Informática</h1>
-                     <div class="container">
+                    <h1>Técnico en Informática</h1>
+                    <div class="container">
                          <div class="row align-items-start">
                              <div class="col">
                                  <h1>Habilidades</h1>
@@ -129,7 +463,7 @@
                              </div>
                          </div>
                      </div>
-                     <h1>Imagen</h1>
+                     <img loading="lazy" class="imagen_tecnico" src="images/tecnico-en-informatica.gif">
                      <div class="container">
                          <div class="row align-items-start">
                              <div class="col">
@@ -141,10 +475,60 @@
                          </div>
                      </div>
                 </section>
+                <section id="modulos" class="tecnico" data-background-video="http://localhost/titulacion/videos/fondo.mp4" data-background-video-loop data-background-video-muted>
+                    <h1>Capítulo 2: Referencia del perfil profesional</h1>
+                    <div class="container">
+                        <div class="row align-items-start">
+                            <div class="col">
+                            </div>
+                            <div class="col">
+                                <h1>Módulo  I</h1>
+                                <p>Desarrolla e instala software de aplicación utilizando programación estructurada, almacenamiento persistente de los datos</p>
+                                <button class="boton-modulos" id="modulo1"><i class="fas fa-eye"></i> Ver mas</button>
+                            </div>
+                            <div class="col">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="row align-items-start">
+                            <div class="col">
+                                <h1>Módulo  V</h1>
+                                <p>Determina las competencias profesionales a través de la estadía</p>
+                                <button class="boton-modulos" id="modulo5"><i class="fas fa-eye"></i> Ver mas</button>
+                            </div>
+                            <div class="col">
+                            </div>
+                            <div class="col">
+                                <h1>Módulo  II</h1>
+                                <p>Desarrolla software de aplicación utilizando programación orientada a objetos, con almacenamiento persistente de los datos</p>
+                                <button class="boton-modulos" id="modulo2"><i class="fas fa-eye"></i> Ver mas</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="row align-items-start">
+                            <div class="col">
+                            </div>
+                            <div class="col">
+                                <h1>Módulo  IV</h1>
+                                <p>Administra sistemas operativos de aplicaciones y servicios</p>
+                                <button class="boton-modulos" id="modulo4"><i class="fas fa-eye"></i> Ver mas</button>
+                            </div>
+                            <div class="col">
+                                <h1>Módulo  III</h1>
+                                <p>Desarrolla aplicaciones web y móviles</p>
+                                <button class="boton-modulos" id="modulo3"><i class="fas fa-eye"></i> Ver mas</button>
+                            </div>
+                            <div class="col">
+                            </div>
+                        </div>
+                    </div>
+                </section>
                  <section data-background-video="http://localhost/titulacion/videos/fondo.mp4" data-background-video-loop data-background-video-muted>
                     <h1>Capítulo 3: Experiencias Laborales</h1>
                     <div class="container">
-                        <div class="row align-items-start">
+                        <div class="v">
                             <div class="col">
                                 <h1>Sistema Bibliotecario</h1>
                             </div>
@@ -174,9 +558,35 @@
                 <section data-background-video="http://localhost/titulacion/videos/fondo.mp4" data-background-video-loop data-background-video-muted>
                     <h1>Gracias por su atención</h1>
                 </section>
+                <section>
+                    <div class="container">
+                        <div class="row align-items-start">
+                            <div class="col">
+                                <h1 class="submodulo">Submódulo I</h1>
+                                <h1 class="submodulo-contenido">Desarrolla software utilizando programación estructurada</h1>
+                                <img class="submodulo-imagen" src="images/equipo.gif">
+                            </div>
+                            <div class="col">
+                                <h1 class="submodulo">Submódulo II</h1>
+                                <h1 class="submodulo-contenido">Diseña y administra bases de datos simples</h1>
+                                <img class="submodulo-imagen" src="images/equipo.gif">
+                            </div>
+                            <div class="col">
+                                <h1 class="submodulo">Submódulo III</h1>
+                                <h1 class="submodulo-contenido">Instrumenta la práctica</h1>
+                                <img class="submodulo-imagen" src="images/equipo.gif">
+                            </div>
+                            <div class="col">
+                                <h1 class="submodulo">Submódulo IV</h1>
+                                <h1 class="submodulo-contenido">Diferencia el perfil profesional en el escenario real</h1>
+                                <img class="submodulo-imagen" src="images/equipo.gif">
+                            </div>
+                        </div>
+                    </div>
+                </section>
 			</div>
 		</div>
-        
+       
         <!-- Bootstrap -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
         <!-- Bootstrap -->
@@ -196,6 +606,66 @@
 
 				// Learn about plugins: https://revealjs.com/plugins/
 			});
+            
 		</script>
+        <script>
+            
+            //Carga
+            
+            $(window).on('load', function() {
+                $('#preloader').css({
+                    "opacity": "0",
+                    "transition-delay": "1.5s",
+                    "display": "none"
+                });
+                $('.loader').css({
+                    "opacity": "0",
+                    "transition-delay": "1s",
+                    "display": "none"
+                });
+
+                $('.loader_text_unit').each(function() {
+                    var $this = $(this),
+                        countTo = $this.attr('data-count');
+
+                    $({ countNum: $this.text()}).animate({
+                      countNum: countTo
+                    },
+
+                    {
+
+                      duration: 800,
+                      easing:'linear',
+                      step: function() {
+                        $this.text(Math.floor(this.countNum));
+                      },
+                      complete: function() {
+                        $this.text(this.countNum);
+                      }
+                    });
+                });
+            });
+        </script>
+        <!-- Alertas -->
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script>
+            var modulo1 = document.getElementById('modulo1');
+            
+            function modulo_1(){
+                Swal.fire({
+                    title: '<h1 class="modulo_1">Módulo 1</h1>',
+                    html: '<div class="container"> <div class="row align-items-start"> <div class="col"> <div class="tamano-contenedor"> <h1 class="submodulo">Submódulo I</h1> <h1 class="submodulo-contenido">Desarrolla software utilizando programación estructurada</h1> </div> <img class="submodulo-imagen" src="images/equipo.gif"> </div> <div class="col"> <div class="tamano-contenedor"> <h1 class="submodulo">Submódulo II</h1> <h1 class="submodulo-contenido">Diseña y administra bases de datos simples</h1> </div> <img class="submodulo-imagen" src="images/equipo.gif"> </div> <div class="col"> <div class="tamano-contenedor"> <h1 class="submodulo">Submódulo III</h1> <h1 class="submodulo-contenido">Instrumenta la práctica</h1> </div> <img class="submodulo-imagen" src="images/equipo.gif"> </div> <div class="col"> <div class="tamano-contenedor"> <h1 class="submodulo">Submódulo IV</h1> <h1 class="submodulo-contenido">Diferencia el perfil profesional en el escenario real</h1> </div> <img class="submodulo-imagen" src="images/equipo.gif"> </div> </div> </div>',
+                    width: '90%',
+                    backdrop: false,
+                    background: 'white',
+                    confirmButtonText: '<div class="boton-regresar"><i style="color: white" class="fas fa-undo"></i> Regresar</div>',
+                    confirmButtonColor: 'black',
+                    stopKeydownPropagation: true
+                })
+            }
+            
+            modulo1.addEventListener('click',modulo_1, true)
+        </script>
 	</body>
 </html>
+
